@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
-    [SerializeField] float loadDelay = 1f;
+    [SerializeField] float loadDelay = 2f;
     [SerializeField] ParticleSystem FinishEffect;
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,6 +13,7 @@ public class FinishLine : MonoBehaviour
         {
             Debug.Log("you did it!");
             FinishEffect.Play();
+            GetComponent<AudioSource>().Play();
             Invoke("reloadScene", loadDelay);
         }
     }
